@@ -126,7 +126,7 @@ def leer_planilla(ruta: Path, registro: Registro) -> pd.DataFrame | None:
     nombre = ruta.name
     try:
         crudo = pd.read_excel(ruta, header=None, dtype=object)
-    except Exception as e:  # archivo dañado, abierto, etc.
+    except Exception as e:  # noqa: BLE001  # archivo dañado, abierto, etc.
         registro.agregar(nombre, "AVISO", f"no se pudo abrir ({e}); archivo omitido")
         return None
 

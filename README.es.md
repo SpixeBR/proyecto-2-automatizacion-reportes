@@ -1,4 +1,5 @@
 # Automatización de reportes de ventas en Excel
+[![Tests](https://github.com/SpixeBR/proyecto-2-automatizacion-reportes/actions/workflows/tests.yml/badge.svg)](https://github.com/SpixeBR/proyecto-2-automatizacion-reportes/actions/workflows/tests.yml)
 
 🇬🇧 [Read this in English](README.md)
 
@@ -67,7 +68,7 @@ En los datos de ejemplo, la carpeta tiene 25 archivos: el script procesa 24, omi
 
 ## Cómo usarlo
 
-Requiere Python 3.11+ (las versiones fijadas en `requirements.txt` se probaron con Python 3.14).
+Requiere Python 3.12+ (las versiones fijadas en `requirements.txt` se probaron con Python 3.14).
 
 ```bash
 python -m venv .venv

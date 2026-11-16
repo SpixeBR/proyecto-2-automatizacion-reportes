@@ -1,0 +1,6 @@
+exclude = [".venv"]
+
+[lint]
+extend-select = ["I", "C4", "RUF"]
+# Typographic characters used on purpose in the Spanish report text
+allowed-confusables = ["×", "–"]

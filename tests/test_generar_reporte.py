@@ -9,8 +9,14 @@ import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from generar_reporte import (  # noqa: E402
-    Registro, a_fecha, a_numero, consolidar, encontrar_encabezado, escribir_reporte, mapear_columna,
+from generar_reporte import (
+    Registro,
+    a_fecha,
+    a_numero,
+    consolidar,
+    encontrar_encabezado,
+    escribir_reporte,
+    mapear_columna,
 )
 
 
@@ -96,7 +102,7 @@ def test_omite_archivo_copiado(tmp_path):
 
 def test_avisa_dos_versiones_del_mismo_periodo(tmp_path):
     crear_planilla(tmp_path / "ventas_Centro_2025_03.xlsx", COLS_A, [VENTA])
-    otra = VENTA[:3] + [3, 1000, 3000]
+    otra = [*VENTA[:3], 3, 1000, 3000]
     # Mismo período y sucursal, con contenido distinto (por ejemplo, una versión corregida)
     crear_planilla(tmp_path / "ventas_centro_2025_03_corregido.xlsx", COLS_A, [otra])
     registro = Registro()
@@ -106,7 +112,7 @@ def test_avisa_dos_versiones_del_mismo_periodo(tmp_path):
 
 
 def test_excluye_cantidades_invalidas_y_lo_registra(tmp_path):
-    crear_planilla(tmp_path / "ventas_Centro_2025_03.xlsx", COLS_A, [VENTA, VENTA[:3] + [0, 1000, 0]])
+    crear_planilla(tmp_path / "ventas_Centro_2025_03.xlsx", COLS_A, [VENTA, [*VENTA[:3], 0, 1000, 0]])
     registro = Registro()
     datos = consolidar(tmp_path, registro)
     assert len(datos) == 1
@@ -117,7 +123,7 @@ def test_genera_reporte_con_todas_las_hojas(tmp_path):
     entrada = tmp_path / "entrada"
     entrada.mkdir()
     crear_planilla(entrada / "ventas_Centro_2025_03.xlsx", COLS_A, [VENTA])
-    crear_planilla(entrada / "ventas_Centro_2025_04.xlsx", COLS_A, [[datetime(2025, 4, 2)] + VENTA[1:]])
+    crear_planilla(entrada / "ventas_Centro_2025_04.xlsx", COLS_A, [[datetime(2025, 4, 2), *VENTA[1:]]])
     registro = Registro()
     salida = tmp_path / "reporte.xlsx"
     escribir_reporte(consolidar(entrada, registro), registro, salida)

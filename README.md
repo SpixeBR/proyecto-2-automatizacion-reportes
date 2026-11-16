@@ -1,4 +1,5 @@
 # Sales Report Automation in Excel
+[![Tests](https://github.com/SpixeBR/proyecto-2-automatizacion-reportes/actions/workflows/tests.yml/badge.svg)](https://github.com/SpixeBR/proyecto-2-automatizacion-reportes/actions/workflows/tests.yml)
 
 🇪🇸 [Leer en español](README.es.md)
 
@@ -68,7 +69,7 @@ On the sample data the folder holds 25 files. The script processes 24, skips one
 
 ## Usage
 
-Requires Python 3.11+ (the pinned versions in `requirements.txt` were tested with Python 3.14).
+Requires Python 3.12+ (the pinned versions in `requirements.txt` were tested with Python 3.14).
 
 ```bash
 python -m venv .venv
