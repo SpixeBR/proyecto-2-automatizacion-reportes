@@ -67,7 +67,7 @@ En los datos de ejemplo, la carpeta tiene 25 archivos: el script procesa 24, omi
 
 ## Cómo usarlo
 
-Requiere Python 3.10 o superior (las versiones fijadas en `requirements.txt` se probaron con Python 3.14).
+Requiere Python 3.11+ (las versiones fijadas en `requirements.txt` se probaron con Python 3.14).
 
 ```bash
 python -m venv .venv

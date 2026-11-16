@@ -68,7 +68,7 @@ On the sample data the folder holds 25 files. The script processes 24, skips one
 
 ## Usage
 
-Requires Python 3.10 or newer (the pinned versions in `requirements.txt` were tested with Python 3.14).
+Requires Python 3.11+ (the pinned versions in `requirements.txt` were tested with Python 3.14).
 
 ```bash
 python -m venv .venv
